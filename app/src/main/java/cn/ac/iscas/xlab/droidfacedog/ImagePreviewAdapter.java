@@ -1,10 +1,7 @@
 package cn.ac.iscas.xlab.droidfacedog;
 
-import android.app.ActivityManager;
-import android.content.ComponentName;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.support.v4.app.ActivityManagerCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
@@ -15,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
+
+import cn.ac.iscas.xlab.droidfacedog.util.ImgToServerUtil;
 
 /**
  * Created by Nguyen on 5/20/2016.
@@ -82,9 +81,10 @@ public class ImagePreviewAdapter extends
     }
 
     private void sendFaceToServer(Bitmap bitmap) {
-        PostImageForRecognitionAsync t = new PostImageForRecognitionAsync();
-        t.setContext(context);
-        t.execute(bitmap);
+         ImgToServerUtil.sendToServer(bitmap,context);
+//        PostImageForRecognitionAsync t = new PostImageForRecognitionAsync();
+//        t.setContext(context);
+//        t.execute(bitmap);
 
 //        GetImageAfterRecognitionAsync g = new GetImageAfterRecognitionAsync();
 //        g.setContext(context);
