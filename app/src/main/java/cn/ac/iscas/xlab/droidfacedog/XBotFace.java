@@ -13,7 +13,6 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.YuvImage;
 import android.hardware.Camera;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.os.Bundle;
@@ -34,11 +33,9 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.jilk.ros.ROSClient;
 import com.jilk.ros.rosbridge.ROSBridgeClient;
-import com.jilk.ros.rosbridge.implementation.ROSBridgeWebSocketClient;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -46,10 +43,8 @@ import java.io.IOException;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import java.util.StringTokenizer;
 
 import de.greenrobot.event.EventBus;
 
@@ -459,6 +454,8 @@ public final class XBotFace extends AppCompatActivity implements SurfaceHolder.C
             mp.stop();
             mp.release();
         }
+        //unregister the eventBus
+        EventBus.getDefault().unregister(this);
     }
 
 

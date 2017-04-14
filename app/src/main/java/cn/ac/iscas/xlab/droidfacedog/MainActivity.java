@@ -9,7 +9,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 /**
  * Created by Nguyen on 5/20/2016.
@@ -22,17 +22,17 @@ public class MainActivity extends AppCompatActivity {
     private static final int RC_HANDLE_CAMERA_PERM_RGB = 1;
 
     private Context mContext;
-    Button btnCameraRGB;
-    Button btnXbotFace;
-    Button btnRegisterVIP;
-    Button btnSetting;
+    ImageButton btnCameraRGB;
+    ImageButton btnXbotFace;
+    ImageButton btnRegisterVIP;
+    ImageButton btnSetting;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mContext = this;
 
-        btnCameraRGB = (Button) findViewById(R.id.button_detect);
+        btnCameraRGB = (ImageButton) findViewById(R.id.id_ibt_facedetect);
         btnCameraRGB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnXbotFace = (Button) findViewById(R.id.button_xbotface);
+        btnXbotFace = (ImageButton) findViewById(R.id.id_ibt_xbot_face);
         btnXbotFace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        btnRegisterVIP = (Button) findViewById(R.id.button_detect);
+//        btnRegisterVIP = (Button) findViewById(R.id.id_ibt_vip);
 //        btnRegisterVIP.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 
-        btnSetting = (Button) findViewById(R.id.button_config);
+        btnSetting = (ImageButton) findViewById(R.id.id_ibt_settings);
         btnSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

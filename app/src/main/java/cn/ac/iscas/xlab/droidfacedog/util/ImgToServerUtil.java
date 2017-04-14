@@ -17,8 +17,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -28,6 +26,7 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.Call;
@@ -86,11 +85,6 @@ public class ImgToServerUtil {
                     e.onComplete();
                 }
 
-                try {
-                    URL url = new URL("http://" + serverAddress + ":8000/recognition");
-                } catch (MalformedURLException e1) {
-                    e1.printStackTrace();
-                }
 
                 //encode the face into Stirng ,and then put it into a jsonObject
                 JSONObject jsonObject = new JSONObject();
@@ -106,7 +100,7 @@ public class ImgToServerUtil {
                 //create requestBody,which carry infomation that would be sent to server
                 RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), jsonString);
 
-                Request request = builder.url(SERVER_IP_ADDRESS)
+                Request request = builder.url("http://" + serverAddress + ":8000/recognition")
                         .post(requestBody)
                         .addHeader("Content-Length",Integer.toString(jsonString.length()))
                         .addHeader("Content-Type","application/json")
@@ -145,6 +139,7 @@ public class ImgToServerUtil {
         });
         //make the event(network process of sending bitmap) happens in new Thread
         observable.subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<Integer>() {
                     @Override
                     public void onSubscribe(Disposable d) {

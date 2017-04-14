@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,46 +8,98 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:gravity="center_horizontal"
     tools:context="cn.ac.iscas.xlab.droidfacedog.MainActivity">
 
-    <Button
-        android:id="@+id/button_detect"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="32dp"
-        android:text="@string/begin_preview_button"
-        android:textSize="48sp"
-        android:layout_weight="1"
-        android:lineSpacingExtra="6sp"/>
+    <LinearLayout
+        android:id="@+id/id_linearlayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/function_layout_padding"
+        >
+        <ImageButton
+            android:id="@+id/id_ibt_facedetect"
+            android:background="@drawable/face_detect_64x64"
+            android:layout_width="@dimen/function_icon_width"
+            android:layout_height="@dimen/function_icon_height"/>
+        <TextView
+            android:text="@string/begin_preview_button"
+            android:textSize="@dimen/function_text_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/function1_select_color"
+            />
+    </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/id_linearlayout2"
+        android:layout_toRightOf="@id/id_linearlayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/function_layout_padding"
+        >
+        <ImageButton
+            android:id="@+id/id_ibt_xbot_face"
+            android:background="@drawable/xbot_face_64x64"
+            android:layout_width="@dimen/function_icon_width"
+            android:layout_height="@dimen/function_icon_height"/>
+        <TextView
+            android:text="@string/begin_xbotface_button"
+            android:textSize="@dimen/function_text_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/function1_select_color"
+            />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/button_xbotface"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="32dp"
-        android:text="@string/begin_xbotface_button"
-        android:textSize="48sp"
-        android:layout_weight="1"
-        android:lineSpacingExtra="6sp"/>
+    <LinearLayout
+        android:id="@+id/id_linearlayout3"
+        android:layout_below="@id/id_linearlayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/function_layout_padding"
+        >
+        <ImageButton
+            android:id="@+id/id_ibt_vip"
+            android:background="@drawable/function_vip_64x64"
+            android:layout_width="@dimen/function_icon_width"
+            android:layout_height="@dimen/function_icon_height"/>
+        <TextView
+            android:text="@string/begin_register_button"
+            android:textSize="@dimen/function_text_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/function1_select_color"
+            />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/button_register"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="32dp"
-        android:text="@string/begin_register_button"
-        android:textSize="48sp"
-        android:layout_weight="1"
-        android:lineSpacingExtra="6sp"/>
-
-    <Button
-        android:id="@+id/button_config"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="32dp"
-        android:text="@string/config_button_text"
-        android:textSize="48sp"
-        android:layout_weight="1"
-        android:lineSpacingExtra="6sp"/>
-</LinearLayout>
+    <LinearLayout
+        android:id="@+id/id_linearlayout4"
+        android:layout_toRightOf="@id/id_linearlayout3"
+        android:layout_below="@id/id_linearlayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/function_layout_padding"
+        >
+        <ImageButton
+            android:id="@+id/id_ibt_settings"
+            android:background="@drawable/function_settings_64x64"
+            android:layout_width="@dimen/function_icon_width"
+            android:layout_height="@dimen/function_icon_height"/>
+        <TextView
+            android:text="@string/config_button_text"
+            android:textSize="@dimen/function_text_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/function1_select_color"
+            />
+    </LinearLayout>
+</RelativeLayout>

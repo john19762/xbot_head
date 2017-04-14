@@ -5,4 +5,8 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="colorBlackOverlay">#44000000</color>
+
+    <color name="fun1_color">#eeccddee</color>
+    <color name="fun1_select_color">#66ccddee</color>
+
 </resources>
