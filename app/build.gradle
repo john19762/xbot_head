@@ -12,6 +12,14 @@ android {
         versionName "v0.4.0"
         vectorDrawables.useSupportLibrary = true
     }
+    signingConfigs {
+        releaseConfig {
+            storeFile file("lst_keystore.jks")
+            storePassword System.getenv("KEYSTORE_PASS")
+            keyAlias System.getenv("ALIAS_NAME")
+            keyPassword System.getenv("ALIAS_PASS")
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false

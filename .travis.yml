@@ -8,13 +8,8 @@ android:
     - tools
     - platform-tools
     - tools
-
-    # The BuildTools version used by your project
     - build-tools-25.0.2
-
-    # The SDK version used to compile your project
     - android-25
-
     - extra-android-support
     - extra-google-google_play_services
     - extra-android-m2repository
@@ -23,3 +18,21 @@ android:
 
 before_install:
  - chmod +x gradlew
+ - gem install fir-cli
+
+script:  
+  - ./gradlew assembleRelease
+
+deploy:
+  provider: releases
+  api_key:
+    secure: a8a4c880bb495e915a014e8e0a7ed20450d9e072
+  file: app/build/outputs/apk/app-release.apk
+  skip_cleanup: true
+  on:
+    tags: true
+    all_branches: true
+
+after_deploy:
+- fir p app/build/outputs/apk/app-release.apk -T $FIR_API_TOKEN -c "`git cat-file tag $TRAVIS_TAG`"
+
